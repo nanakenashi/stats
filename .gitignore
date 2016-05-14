@@ -1,0 +1,4 @@
+/.bundle/
+/lib/google/config/*
+/var/
+/vendor/
