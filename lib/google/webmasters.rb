@@ -26,14 +26,14 @@ module Google
 
     def get_request(start_date, end_date)
       request = Google::Apis::WebmastersV3::SearchAnalyticsQueryRequest.new
-      request.start_date = start_date || get_last_week
-      request.end_date   = end_date || get_last_week
+      request.start_date = start_date || get_n_day_ago(7)
+      request.end_date   = end_date   || get_n_day_ago(7)
 
       request
     end
 
-    def get_last_week
-      (Date.today - 7).strftime('%Y-%m-%d')
+    def get_n_day_ago(n)
+      (Date.today - n).strftime('%Y-%m-%d')
     end
 
     def format(raw_date)
